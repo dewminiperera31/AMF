@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TaskManager.Master.cs" Inherits="AMF.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href="CSS/TaskManager.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="head">
+        <h1 class="header">Task Manager
+            <asp:Image ID="Image1" runat="server" BorderWidth="0px" ImageUrl="~/Images/t1.png" Width="80px" />
+        </h1>
+
+    </div>
+        <br /><br />
+    <div id="nav">
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/HOME.aspx" CSSClass="hyper" ForeColor="#CCFFFF">HOME</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/ManageCustomertasks.aspx" CSSClass="hyper" ForeColor="#CCFFFF">TASKS</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/ManageCustomer.aspx" CSSClass="hyper" ForeColor="#CCFFFF">SETTINGS</asp:HyperLink>
+       
+
+
+        <asp:Button ID="btnSignIn" runat="server"  Text="Sign Out" CSSClass="btnsign" PostBackUrl="~/login.aspx"/>
+        
+
+    </div>
+    <div id="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+  
+    <div id="footer1">
+    <div class="footer1-container">
+        <div class="footer1-section">
+
+            <div class="footer1-logo">
+                <h2>Task Manager</h2>
+            </div>
+
+            <p>TaskManager is one of the fast-growing  marketplaces that includes lot of tasks in AMF. 
+               It is capable to accommodate task of types, 
+                and complexities with state-of-the-art technology.</p>
+
+            <div class="footer1-social-icons">
+                <a href="#" ImageUrl="~/Images/fb.png"><img src="Images/fb.png" alt="Facebook"></a>
+                <a href="#" ImageUrl="~/Images/tw.png"><img src="Images/tw.png" alt="twitter"></a>
+                <a href="#" ImageUrl="~/Images/pinterest.png"><img src="Images/pinterest.png" alt="Pinterest"></a>
+            </div>
+        </div>
+
+        <div class="footer1-section">
+            <h2>Site Map</h2>
+            <ul>
+                <li><a href="HOME.aspx">Home</a></li>
+                <li><a href="ManageCustomertasks.aspx">Task Management</a></li>
+                <li><a href="ManageCustomer.aspx">Profile Settings</a></li>
+                
+            </ul>
+        </div>
+
+        <div class="footer1-section">
+            <h2>FAQ</h2>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+
+        <div class="footer1-section">
+            <h2>Contact</h2>
+            <p> +94777389172 | +94777371672</p>
+            <p> Collombo 2</p>
+            <p> AMF(pvt)@.lk</p>
+        </div>
+    </div>
+
+    <div class="footer1-bottom">
+        <p>&copy; Copyright 2024 Task Manager | All Rights Reserved</p>
+        <p>Digitally crafted by Avishka Dewmini Perera</p>
+    </div>
+</div>
+
+    
+</form>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="addTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addTaskResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findTaskResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateTaskResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteTaskResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="viewAllTask">
+        <s:complexType />
+      </s:element>
+      <s:element name="viewAllTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="viewAllTaskResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:addTask" />
+  </wsdl:message>
+  <wsdl:message name="addTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:addTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="findTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:findTask" />
+  </wsdl:message>
+  <wsdl:message name="findTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:findTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:updateTask" />
+  </wsdl:message>
+  <wsdl:message name="updateTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:updateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteTask" />
+  </wsdl:message>
+  <wsdl:message name="deleteTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="viewAllTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:viewAllTask" />
+  </wsdl:message>
+  <wsdl:message name="viewAllTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:viewAllTaskResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TaskServiceSoap">
+    <wsdl:operation name="addTask">
+      <wsdl:input message="tns:addTaskSoapIn" />
+      <wsdl:output message="tns:addTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findTask">
+      <wsdl:input message="tns:findTaskSoapIn" />
+      <wsdl:output message="tns:findTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateTask">
+      <wsdl:input message="tns:updateTaskSoapIn" />
+      <wsdl:output message="tns:updateTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTask">
+      <wsdl:input message="tns:deleteTaskSoapIn" />
+      <wsdl:output message="tns:deleteTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="viewAllTask">
+      <wsdl:input message="tns:viewAllTaskSoapIn" />
+      <wsdl:output message="tns:viewAllTaskSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TaskServiceSoap" type="tns:TaskServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addTask">
+      <soap:operation soapAction="http://tempuri.org/addTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findTask">
+      <soap:operation soapAction="http://tempuri.org/findTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTask">
+      <soap:operation soapAction="http://tempuri.org/updateTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTask">
+      <soap:operation soapAction="http://tempuri.org/deleteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viewAllTask">
+      <soap:operation soapAction="http://tempuri.org/viewAllTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaskServiceSoap12" type="tns:TaskServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addTask">
+      <soap12:operation soapAction="http://tempuri.org/addTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findTask">
+      <soap12:operation soapAction="http://tempuri.org/findTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTask">
+      <soap12:operation soapAction="http://tempuri.org/updateTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTask">
+      <soap12:operation soapAction="http://tempuri.org/deleteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viewAllTask">
+      <soap12:operation soapAction="http://tempuri.org/viewAllTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaskService">
+    <wsdl:port name="TaskServiceSoap" binding="tns:TaskServiceSoap">
+      <soap:address location="https://localhost:44367/TaskService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TaskServiceSoap12" binding="tns:TaskServiceSoap12">
+      <soap12:address location="https://localhost:44367/TaskService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
